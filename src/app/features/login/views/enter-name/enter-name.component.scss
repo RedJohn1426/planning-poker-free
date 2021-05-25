@@ -1,0 +1,98 @@
+@import "src/app/shared/theme/media-query";
+
+$width-form-xs: 250px;
+$width-form-sm: 300px;
+$width-form-md: 400px;
+$width-form-lg: 600px;
+
+:host {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+
+  .enter-name {
+    display: flex;
+    flex-direction: column;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    @include xs {
+      width: $width-form-xs;
+    }
+
+    @include sm {
+      width: $width-form-sm;
+    }
+
+    @include md {
+      width: $width-form-md;
+    }
+
+    @include lg {
+      width: $width-form-lg;
+    }
+
+    &__logo {
+      height: 120px;
+    }
+
+    &__title {
+      font-family: 'Pattaya', sans-serif;
+      font-size: 30px;
+      text-align: center;
+      margin: 10px 0;
+    }
+
+    &__paragraph {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+    }
+
+    &__form {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      &--input {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 1.2rem;
+        padding: 1.5rem 2rem;
+        border-radius: 0.2rem;
+        border: 2px solid black;
+        outline: none;
+
+        &:focus, &:active {
+          border: 2px solid #0b5d70;
+        }
+      }
+
+      &--button {
+        margin-top: 15px;
+
+        &::ng-deep a {
+          @include xs {
+            width: calc(#{$width-form-xs} - 64.6px);
+          }
+
+          @include sm {
+            width: calc(#{$width-form-sm} - 64.6px);
+          }
+
+          @include md {
+            width: calc(#{$width-form-md} - 64.6px);
+          }
+
+          @include lg {
+            width: calc(#{$width-form-lg} - 64.6px);
+          }
+        }
+      }
+    }
+  }
+}
+
+
