@@ -22,7 +22,7 @@
   </div>
 
   <div class="navbar__user">
-    <h3 class="navbar__user--name">Alejandro</h3>
+    <h3 class="navbar__user--name">{{ user.name | async }}</h3>
     <fa-icon class="navbar__user--options" [icon]="iconConfig"></fa-icon>
   </div>
 </section>

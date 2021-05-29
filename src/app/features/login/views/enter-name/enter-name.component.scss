@@ -50,48 +50,6 @@ $width-form-lg: 600px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
     }
-
-    &__form {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-
-      &--input {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 600;
-        font-size: 1.2rem;
-        padding: 1.5rem 2rem;
-        border-radius: 0.2rem;
-        border: 2px solid black;
-        outline: none;
-
-        &:focus, &:active {
-          border: 2px solid #0b5d70;
-        }
-      }
-
-      &--button {
-        margin-top: 15px;
-
-        &::ng-deep a {
-          @include xs {
-            width: calc(#{$width-form-xs} - 64.6px);
-          }
-
-          @include sm {
-            width: calc(#{$width-form-sm} - 64.6px);
-          }
-
-          @include md {
-            width: calc(#{$width-form-md} - 64.6px);
-          }
-
-          @include lg {
-            width: calc(#{$width-form-lg} - 64.6px);
-          }
-        }
-      }
-    }
   }
 }
 

@@ -18,8 +18,5 @@
   </svg>
   <h1 class="enter-name__title">Planning Poker</h1>
   <h3 class="enter-name__paragraph">Elija un nombre para mostrar</h3>
-  <form class="enter-name__form">
-    <input id="name" class="enter-name__form--input" autofocus type="text">
-    <pp-liquid-button text="Elegir" class="enter-name__form--button"></pp-liquid-button>
-  </form>
+  <pp-enter-name-form (name)="presenter.saveName($event)" ></pp-enter-name-form>
 </section>

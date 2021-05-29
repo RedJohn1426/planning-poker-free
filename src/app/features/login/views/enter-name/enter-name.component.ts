@@ -9,4 +9,7 @@ import { EnterNamePresenter } from './enter-name.presenter';
 })
 export class EnterNameComponent {
 
+  constructor(public presenter: EnterNamePresenter) {
+  }
+
 }
