@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { UserModule } from './user.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: UserModule
 })
 export class UserService {
   private _name: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
