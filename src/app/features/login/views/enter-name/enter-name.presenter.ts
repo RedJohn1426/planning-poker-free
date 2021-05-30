@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../../../../shared/services/user/user.service';
 import { Router } from '@angular/router';
+import { Path } from '../../../../shared/constants/path.enum';
 
 @Injectable()
 export class EnterNamePresenter {
@@ -10,10 +11,9 @@ export class EnterNamePresenter {
     private router: Router
   ) { }
 
-  saveName(name: string): void {
-    console.log(name);
+  async saveName(name: string): Promise<void> {
     this.user.setName(name);
-    this.router.navigate(['/equipos/espacios-de-trabajo']);
+    await this.router.navigateByUrl(`/${Path.TEAMS}/${Path.WORKSPACES}`);
   }
 
 }
