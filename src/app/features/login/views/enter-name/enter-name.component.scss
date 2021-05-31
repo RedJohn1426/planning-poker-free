@@ -11,6 +11,10 @@ $width-lg: 600px;
   align-items: center;
   justify-content: center;
 
+  @include xs {
+    margin-top: 50px;
+  }
+
   .enter-name {
     display: flex;
     flex-direction: column;

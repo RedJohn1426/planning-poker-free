@@ -1,27 +1,38 @@
+@import "src/app/shared/theme/media-query";
+
 $error: #f73860;
 $success: #36a848;
-$warning: #ff9900;
+$alert: #ff9900;
 
 .popup {
   position: absolute;
-  z-index: 999;
-  width: 500px;
-  height: 80px;
   padding: 10px;
   max-height: 120px;
   border-radius: 15px;
-  top: 20px;
-  left: calc(50% - 250px);
-  right: calc(50% - 250px);
   text-align: center;
   color: white;
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 
+  @include xs {
+    width: 250px;
+    top: 20px;
+    left: calc(50% - 135px);
+    right: calc(50% - 135px);
+  }
+
+  @include sm {
+    width: 500px;
+    top: 30px;
+    left: calc(50% - 260px);
+    right: calc(50% - 260px);
+  }
+
   &__cross {
     position: absolute;
     right: 8px;
     top: 8px;
+    cursor: pointer;
   }
 }
 
@@ -31,11 +42,11 @@ $warning: #ff9900;
 }
 
 .alert {
-  background-color: $warning;
-  border-color: $warning;
+  background-color: $alert;
+  border-color: $alert;
 }
 
-.alert {
+.success {
   background-color: $success;
   border-color: $success;
 }
