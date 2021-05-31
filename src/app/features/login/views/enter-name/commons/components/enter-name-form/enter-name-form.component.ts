@@ -14,7 +14,6 @@ export class EnterNameFormComponent {
 
   @ViewChild('input', { static: false })
   set input(element: ElementRef<HTMLInputElement>) {
-    console.log(element);
     if (element) {
       element.nativeElement.focus();
     }
