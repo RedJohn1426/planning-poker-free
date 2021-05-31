@@ -1,0 +1,41 @@
+$error: #f73860;
+$success: #36a848;
+$warning: #ff9900;
+
+.popup {
+  position: absolute;
+  z-index: 999;
+  width: 500px;
+  height: 80px;
+  padding: 10px;
+  max-height: 120px;
+  border-radius: 15px;
+  top: 20px;
+  left: calc(50% - 250px);
+  right: calc(50% - 250px);
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+
+  &__cross {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
+}
+
+.error {
+  background-color: $error;
+  border-color: $error;
+}
+
+.alert {
+  background-color: $warning;
+  border-color: $warning;
+}
+
+.alert {
+  background-color: $success;
+  border-color: $success;
+}
