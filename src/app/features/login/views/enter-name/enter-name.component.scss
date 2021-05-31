@@ -1,9 +1,9 @@
 @import "src/app/shared/theme/media-query";
 
-$width-form-xs: 250px;
-$width-form-sm: 300px;
-$width-form-md: 400px;
-$width-form-lg: 600px;
+$width-xs: 250px;
+$width-sm: 300px;
+$width-md: 400px;
+$width-lg: 600px;
 
 :host {
   display: flex;
@@ -20,19 +20,19 @@ $width-form-lg: 600px;
     user-select: none;
 
     @include xs {
-      width: $width-form-xs;
+      width: $width-xs;
     }
 
     @include sm {
-      width: $width-form-sm;
+      width: $width-sm;
     }
 
     @include md {
-      width: $width-form-md;
+      width: $width-md;
     }
 
     @include lg {
-      width: $width-form-lg;
+      width: $width-lg;
     }
 
     &__logo {
