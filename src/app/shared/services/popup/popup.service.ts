@@ -8,7 +8,8 @@ import { PopupComponent } from './popup.component';
 import { PopupInjector } from './popup.injector';
 
 const defaultConfig: PopupConfig  = {
-  type: 'error'
+  type: 'error',
+  lifeTime: 10000
 }
 
 @Injectable({
@@ -24,7 +25,8 @@ export class PopupService {
 
   static getConfig(config: PopupConfig): PopupConfig {
     return {
-      type: config?.type || defaultConfig.type
+      type: config?.type || defaultConfig.type,
+      lifeTime: config?.lifeTime || defaultConfig.lifeTime
     };
   }
 

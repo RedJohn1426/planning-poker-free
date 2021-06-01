@@ -5,6 +5,7 @@ export const POPUP_DATA = new InjectionToken<any>('POPUP_DATA');
 
 export interface PopupConfig {
   type?: 'alert' | 'error' | 'success';
+  lifeTime?: number | 'unlimited';
 }
 
 export interface PopupData<T> {
