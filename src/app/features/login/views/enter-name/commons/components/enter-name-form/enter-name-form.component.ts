@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PopupError } from '../../popups/popup-error/popup-error.interface';
 import { PopupService } from '../../../../../../../shared/services/popup/popup.service';
@@ -11,22 +11,19 @@ import { EnterNameFormErrors } from './enter-name-form.errors';
   styleUrls: ['./enter-name-form.component.scss'],
   providers: [EnterNameFormErrors]
 })
-export class EnterNameFormComponent {
+export class EnterNameFormComponent implements AfterViewInit {
 
   formGroup: FormGroup;
 
   @Output() name: EventEmitter<string> = new EventEmitter<string>();
 
-  @ViewChild('input', { static: false })
-  set input(element: ElementRef<HTMLInputElement>) {
-    if (element) { element.nativeElement.focus() }
-  }
+  @ViewChild('input', { static: false }) input: ElementRef<HTMLInputElement> | undefined;
 
   private get nameField(): FormControl {
     return this.formGroup.get('name') as FormControl;
   }
 
-  private get nameError(): PopupError {
+  private get nameErrorMessage(): PopupError {
     if (this.nameField.hasError('required')) { return this.error.requiredDataPopup() }
     if (this.nameField.hasError('minlength')) { return this.error.minLengthDataPopup() }
     if (this.nameField.hasError('maxlength')) { return this.error.maxLengthDataPopup() }
@@ -49,9 +46,14 @@ export class EnterNameFormComponent {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.input?.nativeElement.focus();
+  }
+
   submitName(): void | boolean {
     if (this.formGroup.invalid) {
-      this.popup.open<PopupError>(PopupErrorComponent, { data: this.nameError });
+      this.popup.open<PopupError>(PopupErrorComponent, { data: this.nameErrorMessage, lifeTime: 6000 });
+      this.input?.nativeElement.select();
       return false;
     }
     this.name.emit(this.nameField.value);
