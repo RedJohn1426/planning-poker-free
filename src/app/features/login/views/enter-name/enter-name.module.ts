@@ -5,14 +5,19 @@ import { RouterModule } from '@angular/router';
 import { LiquidButtonModule } from '../../../../shared/components/liquid-button/liquid-button.module';
 import { EnterNameFormComponent } from './commons/components/enter-name-form/enter-name-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PopupErrorComponent } from './commons/popups/popup-error/popup-error.component';
 
 @NgModule({
-  declarations: [EnterNameComponent, EnterNameFormComponent],
+  declarations: [
+    EnterNameComponent,
+    EnterNameFormComponent,
+    PopupErrorComponent
+  ],
   imports: [
     CommonModule,
     LiquidButtonModule,
-    RouterModule.forChild([{path: '', component: EnterNameComponent}]),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild([{path: '', component: EnterNameComponent}])
   ]
 })
 export class EnterNameModule { }

@@ -40,7 +40,7 @@ export class PopupService {
     return popupRef;
   }
 
-  createInjector(ref: PopupRef, data: PopupOpts<any>) {
+  private createInjector(ref: PopupRef, data: PopupOpts<any>) {
     const injectionTokens = new WeakMap();
     injectionTokens.set(PopupRef, ref);
     injectionTokens.set(POPUP_CONFIG, PopupService.getConfig(data));
