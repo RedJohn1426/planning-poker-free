@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { WorkspacesPresenter } from './workspaces.presenter';
 
 @Component({
@@ -7,11 +7,8 @@ import { WorkspacesPresenter } from './workspaces.presenter';
   styleUrls: ['./workspaces.component.scss'],
   providers: [WorkspacesPresenter]
 })
-export class WorkspacesComponent implements OnInit {
+export class WorkspacesComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(public presenter: WorkspacesPresenter) { }
 
 }

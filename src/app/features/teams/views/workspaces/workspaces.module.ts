@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 import { SearcherComponent } from './commons/components/searcher/searcher.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardTeamComponent } from './commons/components/card-team/card-team.component';
 
 @NgModule({
   declarations: [
     WorkspacesComponent,
-    SearcherComponent
+    SearcherComponent,
+    CardTeamComponent
   ],
   imports: [
     CommonModule,

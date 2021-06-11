@@ -1,0 +1,54 @@
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150px;
+  width: 400px;
+  border-radius: 25px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin: 20px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    box-shadow: 2px 0 30px rgba(0, 0, 0, 0.90);
+  }
+
+  :nth-child(1) {
+    margin-right: 50px;
+  }
+
+  &__team-name {
+    position:absolute;
+    font-family: 'Montserrat', sans-serif;
+    font-size:44px;
+    text-transform: uppercase;
+    letter-spacing:15px;
+    color:#fff;
+    mix-blend-mode: difference;
+  }
+}
+
+#top {
+  height: 100%;
+  width: 100%;
+  background-color: #165d70;
+  border-radius: 20px;
+  transform: rotate(20deg);
+  margin-top: -232px;
+  margin-left: 396px;
+}
+
+#bottom {
+  height: 100%;
+  width: 100%;
+  background-color: #165d70;
+  border-radius: 20px;
+  transform: rotate(20deg);
+  margin-top: 81px;
+  margin-left: -505px;
+}
