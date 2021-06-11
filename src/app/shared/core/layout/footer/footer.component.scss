@@ -1,14 +1,9 @@
 .container-footer {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  //border-top: 1px solid;
-  //border-top-color: #b2b2b2;
+  display: block;
+  width: 100%;
 
   .footer {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin: 15px;
