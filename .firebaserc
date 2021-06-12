@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "planning-poker-free": {
+      "hosting": {
+        "planning-poker-free": [
+          "planning-poker-free"
+        ]
+      }
+    }
+  }
+}
