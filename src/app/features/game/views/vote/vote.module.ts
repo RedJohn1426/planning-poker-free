@@ -7,7 +7,7 @@ import { VoteComponent } from './vote.component';
   declarations: [VoteComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: VoteComponent}])
+    RouterModule.forChild([{path: ':id', component: VoteComponent}])
   ]
 })
 export class VoteModule { }

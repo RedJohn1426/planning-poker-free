@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'pp-searcher',
@@ -9,6 +9,8 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./searcher.component.scss']
 })
 export class SearcherComponent implements OnInit {
+
+  @Output() teamToFind = new EventEmitter<string>();
 
   readonly iconSearch: IconDefinition = faSearch;
 
@@ -29,11 +31,10 @@ export class SearcherComponent implements OnInit {
   ngOnInit(): void {
     this.searchedTeamName?.valueChanges
       .pipe(
-        debounceTime(500),
         distinctUntilChanged()
       )
       .subscribe(value => {
-        console.log(value);
+        this.teamToFind.emit(value);
       });
   }
 
