@@ -1,6 +1,7 @@
+@import "src/app/shared/theme/media-query";
+
 .search {
   &__input {
-    width: 500px;
     padding: 12px 44px 12px 24px;
     font-size: 18px;
     line-height: 18px;
@@ -9,6 +10,22 @@
     border: 1px solid black;
     font-family: 'Montserrat', sans-serif;
     margin-right: -16px;
+
+    @include xs {
+      width: 190px;
+    }
+
+    @include sm {
+      width: 350px;
+    }
+
+    @include md {
+      width: 400px;
+    }
+
+    @include lg {
+      width: 500px;
+    }
   }
 
   &__icon {

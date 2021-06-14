@@ -1,3 +1,5 @@
+@import "src/app/shared/theme/media-query";
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -22,6 +24,14 @@
     &--title {
       margin-left: 15px;
       font-family: 'Pattaya', sans-serif;
+
+      @include xs {
+        display: none;
+      }
+
+      @include sm {
+        display: block;
+      }
     }
   }
 

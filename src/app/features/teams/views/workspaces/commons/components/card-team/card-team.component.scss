@@ -1,3 +1,5 @@
+@import "src/app/shared/theme/media-query";
+
 .card {
   position: relative;
   display: flex;
@@ -5,7 +7,7 @@
   justify-content: center;
   flex-direction: column;
   height: 150px;
-  width: 400px;
+  padding-left: 15px;
   border-radius: 25px;
   background-color: #ffffff;
   box-shadow: 2px 0 30px rgba(0, 0, 0, 0.15);
@@ -13,6 +15,22 @@
   margin: 20px;
   cursor: pointer;
   transition: all 200ms ease-in-out;
+
+  @include xs {
+    width: 250px;
+  }
+
+  @include sm {
+    width: 350px;
+  }
+
+  @include md {
+    width: 300px;
+  }
+
+  @include lg {
+    width: 400px;
+  }
 
   &:hover {
     box-shadow: 2px 0 30px rgba(0, 0, 0, 0.90);
@@ -30,6 +48,22 @@
     letter-spacing:15px;
     color:#fff;
     mix-blend-mode: difference;
+
+    @include xs {
+      font-size: 25px;
+    }
+
+    @include sm {
+      font-size: 30px;
+    }
+
+    @include md {
+      font-size: 30px;
+    }
+
+    @include lg {
+      font-size: 40px;
+    }
   }
 }
 
@@ -41,6 +75,26 @@
   transform: rotate(20deg);
   margin-top: -232px;
   margin-left: 396px;
+
+  @include xs {
+    margin-top: -209px;
+    margin-left: 396px;
+  }
+
+  @include sm {
+    margin-top: -209px;
+    margin-left: 396px;
+  }
+
+  @include md {
+    margin-top: -232px;
+    margin-left: 396px;
+  }
+
+  @include lg {
+    margin-top: -232px;
+    margin-left: 396px;
+  }
 }
 
 #bottom {
@@ -49,6 +103,24 @@
   background-color: #10b39c;
   border-radius: 20px;
   transform: rotate(20deg);
-  margin-top: 81px;
-  margin-left: -505px;
+
+  @include xs {
+    margin-top: 113px;
+    margin-left: -285px;
+  }
+
+  @include sm {
+    margin-top: 113px;
+    margin-left: -285px;
+  }
+
+  @include md {
+    margin-top: 113px;
+    margin-left: -285px;
+  }
+
+  @include lg {
+    margin-top: 81px;
+    margin-left: -505px;
+  }
 }
