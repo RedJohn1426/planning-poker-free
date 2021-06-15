@@ -6,7 +6,7 @@ import { PopupErrorComponent } from '../../popups/popup-error/popup-error.compon
 import { EnterNameFormErrors } from './enter-name-form.errors';
 
 @Component({
-  selector: 'pp-enter-name-form',
+  selector: 'ppf-enter-name-form',
   templateUrl: './enter-name-form.component.html',
   styleUrls: ['./enter-name-form.component.scss'],
   providers: [EnterNameFormErrors]

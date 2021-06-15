@@ -4,7 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
-  selector: 'pp-searcher',
+  selector: 'ppf-searcher',
   templateUrl: './searcher.component.html',
   styleUrls: ['./searcher.component.scss']
 })

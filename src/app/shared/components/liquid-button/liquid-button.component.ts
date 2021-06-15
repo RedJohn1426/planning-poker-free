@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'pp-liquid-button',
+  selector: 'ppf-liquid-button',
   templateUrl: './liquid-button.component.html',
   styleUrls: ['./liquid-button.component.scss']
 })

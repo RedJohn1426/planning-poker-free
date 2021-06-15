@@ -1,14 +1,14 @@
 <section class="workspaces">
-  <pp-searcher
-    class="workspaces__searcher" (teamToFind)="presenter.searchTeam($event)"></pp-searcher>
+  <ppf-searcher
+    class="workspaces__searcher" (teamToFind)="presenter.searchTeam($event)"></ppf-searcher>
   <section class="workspaces__teams">
     <div class="workspaces__teams--results" *ngIf="presenter.teamSearchResults.length; else empty">
       <div *ngFor="let value of presenter.teamSearchResults; let index=index">
-        <pp-card-team
+        <ppf-card-team
           [teamName]="value.name"
           [design]="index % 2 ? 'top' : 'bottom'"
           (click)="presenter.redirectGame(value.code)">
-        </pp-card-team>
+        </ppf-card-team>
       </div>
     </div>
     <ng-template #empty>

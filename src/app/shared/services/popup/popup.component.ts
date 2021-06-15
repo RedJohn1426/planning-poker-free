@@ -4,7 +4,7 @@ import { PopupRef } from './popup-ref';
 import { faTimesCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-popup',
+  selector: 'ppf-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.scss']
 })

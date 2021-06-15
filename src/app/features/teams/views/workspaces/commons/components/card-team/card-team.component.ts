@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'pp-card-team',
+  selector: 'ppf-card-team',
   templateUrl: './card-team.component.html',
   styleUrls: ['./card-team.component.scss']
 })

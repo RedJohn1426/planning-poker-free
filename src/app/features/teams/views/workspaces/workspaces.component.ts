@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { WorkspacesPresenter } from './workspaces.presenter';
 
 @Component({
-  selector: 'app-workspaces',
+  selector: 'ppf-workspaces',
   templateUrl: './workspaces.component.html',
   styleUrls: ['./workspaces.component.scss'],
   providers: [WorkspacesPresenter]

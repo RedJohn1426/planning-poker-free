@@ -3,7 +3,7 @@ import { POPUP_DATA } from '../../../../../../../shared/services/popup/popup.con
 import { PopupError } from './popup-error.interface';
 
 @Component({
-  selector: 'app-popup-error',
+  selector: 'ppf-popup-error',
   templateUrl: './popup-error.component.html',
   styleUrls: ['./popup-error.component.scss']
 })
