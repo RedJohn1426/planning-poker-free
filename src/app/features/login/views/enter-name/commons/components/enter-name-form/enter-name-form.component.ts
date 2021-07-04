@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PopupError } from '../../popups/popup-error/popup-error.interface';
-import { PopupService } from '../../../../../../../shared/services/popup/popup.service';
+import { PopupService } from '../../../../../../../commons/services/popup/popup.service';
 import { PopupErrorComponent } from '../../popups/popup-error/popup-error.component';
 import { EnterNameFormErrors } from './enter-name-form.errors';
 

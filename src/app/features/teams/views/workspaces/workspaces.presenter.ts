@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TeamsService } from './commons/services/teams.service';
 import { TeamsInterface } from './commons/interfaces/teams.interface';
 import { Router } from '@angular/router';
-import { Path } from '../../../../shared/constants/path.enum';
+import { Path } from '../../../../commons/constants/path.enum';
 
 @Injectable()
 export class WorkspacesPresenter {

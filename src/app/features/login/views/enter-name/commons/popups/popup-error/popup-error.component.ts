@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { POPUP_DATA } from '../../../../../../../shared/services/popup/popup.config';
+import { POPUP_DATA } from '../../../../../../../commons/services/popup/popup.config';
 import { PopupError } from './popup-error.interface';
 
 @Component({

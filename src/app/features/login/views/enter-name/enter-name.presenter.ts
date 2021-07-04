@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { UserService } from '../../../../shared/services/user/user.service';
+import { UserService } from '../../../../commons/services/user/user.service';
 import { Router } from '@angular/router';
-import { Path } from '../../../../shared/constants/path.enum';
-import { PopupService } from '../../../../shared/services/popup/popup.service';
+import { Path } from '../../../../commons/constants/path.enum';
+import { PopupService } from '../../../../commons/services/popup/popup.service';
 
 @Injectable()
 export class EnterNamePresenter {
