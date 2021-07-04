@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "firebase-serve:start ": "firebase emulators:start",
+    "firebase-serve:start-import ": "firebase emulators:start --import mock-data",
+    "firebase-serve:export ": "firebase emulators:export mock-data"
   },
   "private": true,
   "dependencies": {
