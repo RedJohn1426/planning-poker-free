@@ -1,15 +1,13 @@
 @import "../../../../../../../commons/theme/media-query";
 
 .card {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 150px;
-  padding-left: 15px;
   border-radius: 25px;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 2px 0 30px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   margin: 20px;
@@ -36,18 +34,13 @@
     box-shadow: 2px 0 30px rgba(0, 0, 0, 0.90);
   }
 
-  :nth-child(1) {
-    margin-right: 50px;
-  }
-
   &__team-name {
-    position:absolute;
     font-family: 'Montserrat', sans-serif;
     font-size:44px;
     text-transform: uppercase;
     letter-spacing:15px;
-    color:#fff;
-    mix-blend-mode: difference;
+    margin-right: -15px;
+    color: black;
 
     @include xs {
       font-size: 25px;
@@ -64,63 +57,28 @@
     @include lg {
       font-size: 40px;
     }
+
+  }
+
+  &__team-status {
+    position: absolute;
+    margin-top: 70px;
+    font-size: 18px;
+
+  }
+
+  .active {
+    color: green;
+    animation: brightness 2s infinite;
+  }
+
+  .inactive {
+    color: red;
+    animation: brightness 2s infinite;
   }
 }
 
-#top {
-  height: 100%;
-  width: 100%;
-  background-color: #37ceb2;
-  border-radius: 20px;
-  transform: rotate(20deg);
-  margin-top: -232px;
-  margin-left: 396px;
-
-  @include xs {
-    margin-top: -209px;
-    margin-left: 396px;
-  }
-
-  @include sm {
-    margin-top: -209px;
-    margin-left: 396px;
-  }
-
-  @include md {
-    margin-top: -232px;
-    margin-left: 396px;
-  }
-
-  @include lg {
-    margin-top: -232px;
-    margin-left: 396px;
-  }
-}
-
-#bottom {
-  height: 100%;
-  width: 100%;
-  background-color: #10b39c;
-  border-radius: 20px;
-  transform: rotate(20deg);
-
-  @include xs {
-    margin-top: 113px;
-    margin-left: -285px;
-  }
-
-  @include sm {
-    margin-top: 113px;
-    margin-left: -285px;
-  }
-
-  @include md {
-    margin-top: 113px;
-    margin-left: -285px;
-  }
-
-  @include lg {
-    margin-top: 81px;
-    margin-left: -505px;
-  }
+@keyframes brightness {
+  0%, 100% { filter: brightness(1) }
+  50% { filter: brightness(1.6) }
 }

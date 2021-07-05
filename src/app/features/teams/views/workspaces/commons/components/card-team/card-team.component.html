@@ -1,4 +1,7 @@
 <div class="card">
-  <div [id]="design"></div>
   <h2 class="card__team-name">{{ teamName }}</h2>
+  <fa-icon
+    class="card__team-status"
+    [icon]="iconStatus" [ngClass]="active ? 'active' : 'inactive'">
+  </fa-icon>
 </div>

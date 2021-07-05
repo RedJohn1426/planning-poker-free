@@ -6,7 +6,7 @@
       <div *ngFor="let value of presenter.teamSearchResults; let index=index">
         <ppf-card-team
           [teamName]="value.name"
-          [design]="index % 2 ? 'top' : 'bottom'"
+          [active]="value.status"
           (click)="presenter.redirectGame(value.code)">
         </ppf-card-team>
       </div>
