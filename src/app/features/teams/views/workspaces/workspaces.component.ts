@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WorkspacesPresenter } from './workspaces.presenter';
 
 @Component({
@@ -7,8 +7,16 @@ import { WorkspacesPresenter } from './workspaces.presenter';
   styleUrls: ['./workspaces.component.scss'],
   providers: [WorkspacesPresenter]
 })
-export class WorkspacesComponent {
+export class WorkspacesComponent implements OnInit, OnDestroy {
 
-  constructor(public presenter: WorkspacesPresenter) { }
+  constructor(public presenter: WorkspacesPresenter) {}
+
+  ngOnInit(): void {
+    this.presenter.getTeams();
+  }
+
+  ngOnDestroy(): void {
+    this.presenter.unsubscribe();
+  }
 
 }

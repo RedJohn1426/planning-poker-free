@@ -19,12 +19,12 @@ import { TeamsService } from './commons/services/teams.service';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: WorkspacesComponent}]),
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    RouterModule.forChild([{path: '', component: WorkspacesComponent}])
   ],
   providers: [
     TeamsService

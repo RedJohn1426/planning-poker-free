@@ -1,4 +1,4 @@
-export interface PopupError {
+export interface PopupContent {
   title: string;
   text: string;
 }

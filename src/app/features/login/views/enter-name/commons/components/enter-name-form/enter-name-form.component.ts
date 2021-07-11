@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { PopupError } from '../../popups/popup-error/popup-error.interface';
+import { PopupContent } from '../../../../../../../commons/components/popup-content/popup-content.interface';
 import { PopupService } from '../../../../../../../commons/services/popup/popup.service';
-import { PopupErrorComponent } from '../../popups/popup-error/popup-error.component';
+import { PopupContentComponent } from '../../../../../../../commons/components/popup-content/popup-content.component';
 import { EnterNameFormErrors } from './enter-name-form.errors';
 
 @Component({
@@ -23,7 +23,7 @@ export class EnterNameFormComponent implements AfterViewInit {
     return this.formGroup.get('name') as FormControl;
   }
 
-  private get nameErrorMessage(): PopupError {
+  private get nameErrorMessage(): PopupContent {
     if (this.nameField.hasError('required')) { return this.error.requiredDataPopup() }
     if (this.nameField.hasError('minlength')) { return this.error.minLengthDataPopup() }
     if (this.nameField.hasError('maxlength')) { return this.error.maxLengthDataPopup() }
@@ -52,7 +52,7 @@ export class EnterNameFormComponent implements AfterViewInit {
 
   submitName(): void | boolean {
     if (this.formGroup.invalid) {
-      this.popup.open<PopupError>(PopupErrorComponent, { data: this.nameErrorMessage, lifeTime: 6000 });
+      this.popup.open<PopupContent>(PopupContentComponent, { data: this.nameErrorMessage, lifeTime: 6000 });
       this.input?.nativeElement.select();
       return false;
     }

@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { TeamsService } from './commons/services/teams.service';
 import { Router } from '@angular/router';
 import { Path } from '../../../../commons/constants/path.enum';
@@ -6,7 +6,7 @@ import { TeamModel } from './commons/models/team.model';
 import { Subscription } from 'rxjs';
 
 @Injectable()
-export class WorkspacesPresenter implements OnDestroy {
+export class WorkspacesPresenter {
 
   teams: TeamModel[] = [];
   teamSearchResults: TeamModel[] = [];
@@ -15,15 +15,16 @@ export class WorkspacesPresenter implements OnDestroy {
 
   constructor(
     private teamsService: TeamsService,
-    private router: Router
-  ) {
-    this.subscription.add(
-      this.teamsService.teams()
-        .subscribe(res => {
-          this.teams = res;
-          this.teamSearchResults = this.teams.slice(0, 10);
-        })
-    );
+    private router: Router,
+  ) { }
+
+  getTeams(): void {
+    const subscription = this.teamsService.teams()
+      .subscribe(res => {
+        this.teams = res;
+        this.teamSearchResults = this.teams.slice(0, 10);
+      });
+    this.subscription.add(subscription)
   }
 
   async redirectGame(id: string) {
@@ -36,7 +37,7 @@ export class WorkspacesPresenter implements OnDestroy {
       .slice(0, 10);
   }
 
-  ngOnDestroy(): void {
+  unsubscribe(): void {
     this.subscription.unsubscribe();
   }
 }

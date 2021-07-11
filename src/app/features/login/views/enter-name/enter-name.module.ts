@@ -5,13 +5,11 @@ import { RouterModule } from '@angular/router';
 import { LiquidButtonModule } from '../../../../commons/components/liquid-button/liquid-button.module';
 import { EnterNameFormComponent } from './commons/components/enter-name-form/enter-name-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PopupErrorComponent } from './commons/popups/popup-error/popup-error.component';
 
 @NgModule({
   declarations: [
     EnterNameComponent,
-    EnterNameFormComponent,
-    PopupErrorComponent
+    EnterNameFormComponent
   ],
   imports: [
     CommonModule,
