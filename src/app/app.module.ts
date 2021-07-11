@@ -7,7 +7,7 @@ import { LayoutModule } from './commons/core/layout/layout.module';
 import { PopupModule } from './commons/services/popup/popup.module';
 import { USE_EMULATOR as USE_FIRESTORE_EMULATOR } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
-import { PopupContentModule } from './commons/components/popup-content/popup-content.module';
+import { PopupContentModule } from './commons/containers/popup-content/popup-content.module';
 
 @NgModule({
   declarations: [

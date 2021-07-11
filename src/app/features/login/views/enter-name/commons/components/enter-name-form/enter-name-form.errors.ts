@@ -1,4 +1,4 @@
-import { PopupContent } from '../../../../../../../commons/components/popup-content/popup-content.interface';
+import { PopupContent } from '../../../../../../../commons/containers/popup-content/popup-content.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable()
