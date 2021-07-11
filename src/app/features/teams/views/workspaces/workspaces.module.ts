@@ -10,12 +10,14 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../../../../../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { TeamsService } from './commons/services/teams.service';
+import { CardToAddComponent } from './commons/components/card-to-add/card-to-add.component';
 
 @NgModule({
   declarations: [
     WorkspacesComponent,
     SearcherComponent,
     CardTeamComponent,
+    CardToAddComponent,
   ],
   imports: [
     CommonModule,

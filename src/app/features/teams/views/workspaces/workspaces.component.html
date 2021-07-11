@@ -10,9 +10,11 @@
           (click)="presenter.redirectGame(value.code)">
         </ppf-card-team>
       </div>
+      <ppf-card-to-add></ppf-card-to-add>
     </div>
     <ng-template #empty>
       <p class="workspaces__teams--empty">No se encontró resultados</p>
+      <ppf-card-to-add class="workspaces__teams--add"></ppf-card-to-add>
     </ng-template>
   </section>
 </section>

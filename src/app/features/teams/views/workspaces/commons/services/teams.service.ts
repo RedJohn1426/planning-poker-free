@@ -10,6 +10,12 @@ export class TeamsService {
 
   constructor(private firestore: AngularFirestore) { }
 
+  async addTeam(name: string) {
+    const team = await this.firestore.collection('teams').doc();
+    await team.set({ name: name, status: true });
+    await team.collection('game').doc('details').set({ users: [] })
+  }
+
   teams(): Observable<TeamModel[]> {
     return this.firestore.collection<Team>('teams')
       .snapshotChanges()
