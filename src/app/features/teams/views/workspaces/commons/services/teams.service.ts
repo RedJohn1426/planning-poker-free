@@ -8,10 +8,7 @@ import { TeamModel } from '../models/team.model';
 @Injectable()
 export class TeamsService {
 
-  constructor(private firestore: AngularFirestore) {
-    this.firestore.firestore.enablePersistence()
-      .catch(err => console.warn(err));
-  }
+  constructor(private firestore: AngularFirestore) { }
 
   teams(): Observable<TeamModel[]> {
     return this.firestore.collection<Team>('teams')
