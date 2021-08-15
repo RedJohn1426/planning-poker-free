@@ -11,6 +11,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
 export class SearcherComponent implements OnInit {
 
   @Output() teamToFind = new EventEmitter<string>();
+  @Output() working = new EventEmitter<boolean>();
 
   readonly iconSearch: IconDefinition = faSearch;
 
@@ -35,6 +36,7 @@ export class SearcherComponent implements OnInit {
       )
       .subscribe(value => {
         this.teamToFind.emit(value);
+        this.working.emit(!!value.length);
       });
   }
 

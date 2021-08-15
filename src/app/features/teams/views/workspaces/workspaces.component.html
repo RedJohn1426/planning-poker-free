@@ -1,9 +1,13 @@
 <section class="workspaces">
   <ppf-searcher
-    class="workspaces__searcher" (teamToFind)="presenter.searchTeam($event)"></ppf-searcher>
+    class="workspaces__searcher"
+    (teamToFind)="presenter.searchTeam($event)"
+    (working)="presenter.showMessageNoTeams($event, true)">
+  </ppf-searcher>
+
   <section class="workspaces__teams">
-    <div class="workspaces__teams--results" *ngIf="presenter.teamSearchResults.length; else empty">
-      <div *ngFor="let value of presenter.teamSearchResults; let index=index">
+    <div class="workspaces__teams--results" *ngIf="presenter.teamSearchResults.length">
+      <div *ngFor="let value of presenter.teamSearchResults">
         <ppf-card-team
           [teamName]="value.name"
           [active]="value.status"
@@ -12,9 +16,10 @@
       </div>
       <ppf-card-to-add></ppf-card-to-add>
     </div>
-    <ng-template #empty>
-      <p class="workspaces__teams--empty">No se encontró resultados</p>
+
+    <div *ngIf="presenter.noTeams">
+      <p class="workspaces__teams--empty">{{ presenter.messageNoTeams }}</p>
       <ppf-card-to-add class="workspaces__teams--add"></ppf-card-to-add>
-    </ng-template>
+    </div>
   </section>
 </section>
