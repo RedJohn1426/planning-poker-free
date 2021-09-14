@@ -31,8 +31,18 @@ export class WorkspacesPresenter {
     this.subscription.add(subscription)
   }
 
-  async redirectGame(id: string) {
-    await this.router.navigateByUrl(`${Path.GAME}/${id}`);
+  redirectGame(team: TeamModel) {
+    let canRedirect = false;
+    if (team.isLock) {
+      const password = prompt('Ingrese la contraseña')!;
+      canRedirect = team.validatePassword(password)
+    } else {
+      canRedirect = true;
+    }
+
+    if (canRedirect) {
+      this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
+    }
   }
 
   searchTeam(team: string): TeamModel[] {

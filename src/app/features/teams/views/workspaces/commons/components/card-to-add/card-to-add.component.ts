@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faTimesCircle, faLockOpen, faLock } from '@fortawesome/free-solid-svg-icons';
 import { TeamsService } from '../../services/teams.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PopupContent } from '../../../../../../../commons/containers/popup-content/popup-content.interface';
@@ -23,9 +23,16 @@ export class CardToAddComponent {
 
   readonly iconConfirm = faCheckCircle;
   readonly iconCancel = faTimesCircle;
+  get iconPrivate() {
+    return this.passwordField.value ? faLock : faLockOpen;
+  } ;
 
   private get nameTeamField(): FormControl {
-    return this.formGroup.get('nameTeam') as FormControl;
+    return this.formGroup.get('name') as FormControl;
+  }
+
+  private get passwordField(): FormControl {
+    return this.formGroup.get('password') as FormControl;
   }
 
   private get nameTeamErrorMessage(): PopupContent {
@@ -43,12 +50,13 @@ export class CardToAddComponent {
     private popup: PopupService
   ) {
     this.formGroup = this.fb.group({
-      nameTeam: new FormControl('', [
+      name: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(7),
         Validators.pattern('[a-zA-Z&+@ ]*')
-      ])
+      ]),
+      password: null
     });
   }
 
@@ -64,7 +72,7 @@ export class CardToAddComponent {
       return false;
     }
     this.creating = false;
-    this.teamsService.addTeam(this.nameTeamField.value)
+    this.teamsService.addTeam(this.formGroup.value)
       .then(() => {
         this.popup.closeAll();
         this.nameTeamField.patchValue(null);
@@ -75,6 +83,13 @@ export class CardToAddComponent {
     this.creating = false;
     this.popup.closeAll();
     this.nameTeamField.patchValue(null);
+  }
+
+  addPassword() {
+    const password = prompt('Ingrese una contraseña');
+    if (password) {
+      this.passwordField.setValue(password);
+    }
   }
 
 }

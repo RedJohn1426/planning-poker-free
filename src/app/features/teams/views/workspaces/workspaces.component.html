@@ -11,7 +11,8 @@
         <ppf-card-team
           [teamName]="value.name"
           [active]="value.status"
-          (click)="presenter.redirectGame(value.code)">
+          [isLock]="value.isLock"
+          (click)="presenter.redirectGame(value)">
         </ppf-card-team>
       </div>
       <ppf-card-to-add></ppf-card-to-add>
