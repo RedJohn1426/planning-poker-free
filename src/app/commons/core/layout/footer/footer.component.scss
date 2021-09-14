@@ -1,6 +1,7 @@
 .container-footer {
   display: block;
   width: 100%;
+  user-select: none;
 
   .footer {
     display: flex;
