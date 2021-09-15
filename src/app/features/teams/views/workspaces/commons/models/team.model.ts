@@ -1,13 +1,24 @@
 import { Team } from '../interfaces/team.interface';
 
-export class TeamModel implements Team {
+export class TeamModel {
   code: string;
   name: string;
   status: boolean;
 
-  constructor(team: Team) {
-    this.code = team.code;
+  private password?: string;
+
+  get isLock(): boolean {
+    return Boolean(this.password);
+  } 
+
+  constructor(code: string, team: Team) {
+    this.code = code;
     this.name = team.name;
     this.status = team.status;
+    this.password = team.password;
+  }
+
+  validatePassword(password: string): boolean {
+    return this.password === password;
   }
 }

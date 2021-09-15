@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faLockOpen, faLock } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'ppf-card-team',
@@ -10,6 +10,8 @@ export class CardTeamComponent {
 
   @Input() teamName: string = '';
   @Input() active: boolean = false;
+  @Input() isLock: boolean = false;
 
   readonly iconStatus = faCircle;
+  readonly iconLock = faLock;
 }

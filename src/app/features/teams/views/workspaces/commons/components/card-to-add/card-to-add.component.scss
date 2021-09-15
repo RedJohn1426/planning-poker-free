@@ -80,6 +80,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 85px;
+      gap: 20px;
 
       .icon {
         cursor: pointer;
@@ -92,15 +93,15 @@
       }
 
       .confirm {
-        position: absolute;
         color: green;
-        margin-right: 60px;
       }
 
       .cancel {
-        position: absolute;
         color: red;
-        margin-left: 60px;
+      }
+
+      .lock {
+        color: black;
       }
     }
   }
