@@ -1,0 +1,20 @@
+.button-add {
+  font-weight: bold;
+  font-size: 35px;
+  color:white;
+  width: 60px;
+  border-radius: 10px;
+  background-color:#165d70;
+  border-color: #2b9db2;
+  border-width: 3px;
+  border-style: solid;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: #114953;
+  }
+}

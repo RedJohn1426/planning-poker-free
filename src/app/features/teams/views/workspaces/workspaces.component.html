@@ -1,9 +1,14 @@
 <section class="workspaces">
-  <ppf-searcher
-    class="workspaces__searcher"
-    (teamToFind)="presenter.searchTeam($event)"
-    (working)="presenter.showMessageNoTeams($event, true)">
-  </ppf-searcher>
+  <div class="workspaces__head">
+    <ppf-searcher
+      class="workspaces__head--searcher"
+      (teamToFind)="presenter.searchTeam($event)"
+      (working)="presenter.showMessageNoTeams($event, true)">
+    </ppf-searcher>
+    <ppf-button-to-add-team
+      class="workspaces__head--button-add">
+    </ppf-button-to-add-team>
+  </div>
 
   <section class="workspaces__teams">
     <div class="workspaces__teams--results" *ngIf="presenter.teamSearchResults.length">

@@ -11,6 +11,7 @@ import { environment } from '../../../../../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { TeamsService } from './commons/services/teams.service';
 import { CardToAddComponent } from './commons/components/card-to-add/card-to-add.component';
+import { ButtonToAddTeamComponent } from './commons/components/button-to-add-team/button-to-add-team.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CardToAddComponent } from './commons/components/card-to-add/card-to-add
     SearcherComponent,
     CardTeamComponent,
     CardToAddComponent,
+    ButtonToAddTeamComponent
   ],
   imports: [
     CommonModule,
