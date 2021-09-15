@@ -23,6 +23,7 @@ export class CardToAddComponent {
 
   readonly iconConfirm = faCheckCircle;
   readonly iconCancel = faTimesCircle;
+
   get iconPrivate() {
     return this.passwordField.value ? faLock : faLockOpen;
   } ;
@@ -75,14 +76,14 @@ export class CardToAddComponent {
     this.teamsService.addTeam(this.formGroup.value)
       .then(() => {
         this.popup.closeAll();
-        this.nameTeamField.patchValue(null);
+        this.formGroup.patchValue({ name: null, password: null });
       });
   }
 
   cancelCreate(): void {
     this.creating = false;
     this.popup.closeAll();
-    this.nameTeamField.patchValue(null);
+    this.formGroup.patchValue({ name: null, password: null });
   }
 
   addPassword() {

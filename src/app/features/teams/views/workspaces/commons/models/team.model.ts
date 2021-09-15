@@ -5,11 +5,11 @@ export class TeamModel {
   name: string;
   status: boolean;
 
-  private password?: string;
+  private readonly password?: string;
 
   get isLock(): boolean {
     return Boolean(this.password);
-  } 
+  }
 
   constructor(code: string, team: Team) {
     this.code = code;
