@@ -5,7 +5,7 @@ import { ComponentType, Overlay, OverlayConfig } from '@angular/cdk/overlay';
 import { POPUP_CONFIG, POPUP_DATA, PopupConfig, PopupOpts } from './popup.config';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { PopupComponent } from './popup.component';
-import { PopupInjector } from './popup.injector';
+import { CdkInjector } from '../../core/cdk/cdk.injector';
 
 const defaultConfig: PopupConfig  = {
   type: 'error',
@@ -47,7 +47,7 @@ export class PopupService {
     injectionTokens.set(PopupRef, ref);
     injectionTokens.set(POPUP_CONFIG, PopupService.getConfig(data));
     injectionTokens.set(POPUP_DATA, data?.data || null);
-    return new PopupInjector(this.injector, injectionTokens);
+    return new CdkInjector(this.injector, injectionTokens);
   };
 
   closeAll(): void {
