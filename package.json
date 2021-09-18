@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build --base-href /planning-poker-free/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "firebase-serve:start ": "firebase emulators:start",
