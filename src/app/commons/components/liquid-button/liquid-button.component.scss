@@ -18,6 +18,7 @@ $color: #165d70;
   transition: color 700ms ease;
   text-align: center;
   z-index: 1;
+  user-select: none;
 
   &:hover {
     color: #fff;
