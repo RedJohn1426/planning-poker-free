@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Team } from '../interfaces/team.interface';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { TeamModel } from '../models/team.model';
 
 @Injectable()
@@ -25,7 +25,6 @@ export class TeamsService {
           const id = value.payload.doc.id;
           return new TeamModel(id, data);
         })),
-        tap(console.log)
       )
   }
 }
