@@ -20,12 +20,10 @@
           (click)="presenter.redirectGame(value)">
         </ppf-card-team>
       </div>
-      <ppf-card-to-add></ppf-card-to-add>
     </div>
 
     <div *ngIf="presenter.noTeams">
       <p class="workspaces__teams--empty">{{ presenter.messageNoTeams }}</p>
-      <ppf-card-to-add class="workspaces__teams--add"></ppf-card-to-add>
     </div>
   </section>
 </section>
