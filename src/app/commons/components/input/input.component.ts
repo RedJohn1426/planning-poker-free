@@ -17,7 +17,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() label!: string
   @Input() type: 'text' | 'password' = 'text';
   @Input() error: boolean = false;
-  @Input() disabled: boolean = false;
+  @Input() isDisabled: boolean = false;
   @Input() maxLength: string | undefined;
 
   @ViewChild('inputTag') inputTag!: ElementRef<HTMLInputElement>;
@@ -35,7 +35,7 @@ export class InputComponent implements ControlValueAccessor {
 
   value: string = '';
   counter: number = 0;
-  isDisabled: boolean = this.disabled;
+  // isDisabled: boolean = this.disabled;
 
   onTouched: () => void = () => {};
 
