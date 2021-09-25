@@ -1,0 +1,11 @@
+<div class="header">
+  <strong class="title">Registra un nuevo equipo</strong>
+  <div class="key" [class]="privateTeam ? 'enabled' : 'disabled'" (click)="enableAndDisablePassword()">
+    <fa-icon class="key__icon" [icon]="iconKey"></fa-icon>
+  </div>
+</div>
+<form class="form">
+  <ppf-input class="form__name" label="Nombre" maxLength="7" type="text"></ppf-input>
+  <ppf-input class="form__password" label="Contraseña" [disabled]="!privateTeam" maxLength="20" type="password"></ppf-input>
+  <ppf-liquid-button class="form__button" text="Guardar" (click)="saveTeam()"></ppf-liquid-button>
+</form>
