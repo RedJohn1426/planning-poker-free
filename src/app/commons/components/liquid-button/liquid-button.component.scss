@@ -17,6 +17,7 @@ $color: #165d70;
   position: relative;
   transition: color 700ms ease;
   text-align: center;
+  z-index: 1;
 
   &:hover {
     color: #fff;
