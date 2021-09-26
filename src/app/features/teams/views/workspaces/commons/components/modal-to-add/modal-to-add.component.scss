@@ -45,6 +45,10 @@
   &__name {
     margin-top: 5px;
     margin-bottom: 22px;
+
+    &::ng-deep .input {
+      text-transform: uppercase;
+    }
   }
 
   &__password {

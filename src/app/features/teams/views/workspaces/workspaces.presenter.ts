@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Path } from '../../../../commons/constants/path.enum';
 import { TeamModel } from './commons/models/team.model';
 import { Subscription } from 'rxjs';
+import { ModalService } from '../../../../commons/services/modal/modal.service';
+import { ModalToAddComponent } from './commons/components/modal-to-add/modal-to-add.component';
 
 @Injectable()
 export class WorkspacesPresenter {
@@ -19,6 +21,7 @@ export class WorkspacesPresenter {
   constructor(
     private teamsService: TeamsService,
     private router: Router,
+    private modal: ModalService
   ) { }
 
   getTeams(): void {
@@ -29,6 +32,10 @@ export class WorkspacesPresenter {
         this.showMessageNoTeams(!this.teams.length, false)
       });
     this.subscription.add(subscription)
+  }
+
+  openAddTeamModal(): void {
+    this.modal.open(ModalToAddComponent, { size: 'md' });
   }
 
   redirectGame(team: TeamModel) {

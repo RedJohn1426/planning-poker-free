@@ -4,8 +4,16 @@
     <fa-icon class="key__icon" [icon]="iconKey"></fa-icon>
   </div>
 </div>
-<form class="form">
-  <ppf-input class="form__name" label="Nombre" maxLength="7" type="text"></ppf-input>
-  <ppf-input class="form__password" label="Contraseña" [disabled]="!privateTeam" maxLength="20" type="password"></ppf-input>
+<form class="form" [formGroup]="formGroup">
+  <ppf-input
+    class="form__name"
+    label="Nombre" [error]="nameTeamError" maxLength="7" type="text"
+    formControlName="name">
+  </ppf-input>
+  <ppf-input
+    class="form__password"
+    label="Contraseña" [error]="passwordError" [isDisabled]="!privateTeam" maxLength="20" type="password"
+    formControlName="password">
+  </ppf-input>
   <ppf-liquid-button class="form__button" text="Guardar" (click)="saveTeam()"></ppf-liquid-button>
 </form>
