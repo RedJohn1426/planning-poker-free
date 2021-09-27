@@ -57,7 +57,7 @@ export class ModalToAddComponent {
     if (this.passwordField.hasError('minlength')) { return this.error.minLengthPasswordPopup() }
     if (this.passwordField.hasError('maxlength')) { return this.error.maxLengthPasswordPopup() }
     if (this.passwordField.hasError('required')) { return this.error.requiredPasswordPopup() }
-    if (this.nameField.hasError('pattern')) { return this.error.patternPasswordPopup() }
+    if (this.passwordField.hasError('pattern')) { return this.error.patternPasswordPopup() }
     return this.error.default();
   }
 
