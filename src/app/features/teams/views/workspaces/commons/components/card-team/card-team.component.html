@@ -1,12 +1,14 @@
 <div class="card">
-  <h2 class="card__team-name">{{ teamName }}</h2>
-  <div class="card__team-status">
-    <fa-icon
-      [icon]="iconStatus" [ngClass]="active ? 'active' : 'inactive'">
-    </fa-icon>
+  <div class="card__lock">
     <fa-icon
       *ngIf="isLock"
-      [icon]="iconLock">
+      [icon]="iconLock" class="card__lock--icon">
+    </fa-icon>
+  </div>
+  <h2 class="card__name">{{ teamName }}</h2>
+  <div class="card__status">
+    <fa-icon
+      [icon]="iconStatus" [ngClass]="active ? 'active' : 'inactive'">
     </fa-icon>
   </div>
 

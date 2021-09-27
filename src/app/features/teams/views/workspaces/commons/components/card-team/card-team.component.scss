@@ -34,7 +34,16 @@
     box-shadow: 2px 0 30px rgba(0, 0, 0, 0.90);
   }
 
-  &__team-name {
+  &__lock {
+    position: absolute;
+    margin-bottom: 102px;
+
+    &--icon {
+      color: gray;
+    }
+  }
+
+  &__name {
     font-family: 'Montserrat', sans-serif;
     font-size:44px;
     text-transform: uppercase;
@@ -60,13 +69,10 @@
 
   }
 
-  &__team-status {
+  &__status {
     position: absolute;
     margin-top: 70px;
     font-size: 18px;
-    display: flex;
-    gap: 20px;
-
   }
 
   .active {
