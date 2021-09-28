@@ -10,6 +10,7 @@ import { ModalEnterPasswordComponent } from './commons/components/modal-enter-pa
 import { PopupService } from '../../../../commons/services/popup/popup.service';
 import { PopupContent } from '../../../../commons/containers/popup-content/popup-content.interface';
 import { PopupContentComponent } from '../../../../commons/containers/popup-content/popup-content.component';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class WorkspacesPresenter {
@@ -46,7 +47,9 @@ export class WorkspacesPresenter {
   redirectGame(team: TeamModel) {
     if (team.isLock) {
       const modal = this.modal.open(ModalEnterPasswordComponent, { size: 'xs' });
-      modal.afterClosed().subscribe(password => this.redirectToPrivateGame(team, password));
+      modal.afterClosed()
+        .pipe(filter(password => password))
+        .subscribe(password => this.redirectToPrivateGame(team, password));
     } else {
       this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
     }
