@@ -6,6 +6,10 @@ import { TeamModel } from './commons/models/team.model';
 import { Subscription } from 'rxjs';
 import { ModalService } from '../../../../commons/services/modal/modal.service';
 import { ModalToAddComponent } from './commons/components/modal-to-add/modal-to-add.component';
+import { ModalEnterPasswordComponent } from './commons/components/modal-enter-password/modal-enter-password.component';
+import { PopupService } from '../../../../commons/services/popup/popup.service';
+import { PopupContent } from '../../../../commons/containers/popup-content/popup-content.interface';
+import { PopupContentComponent } from '../../../../commons/containers/popup-content/popup-content.component';
 
 @Injectable()
 export class WorkspacesPresenter {
@@ -21,7 +25,8 @@ export class WorkspacesPresenter {
   constructor(
     private teamsService: TeamsService,
     private router: Router,
-    private modal: ModalService
+    private modal: ModalService,
+    private popup: PopupService
   ) { }
 
   getTeams(): void {
@@ -39,16 +44,24 @@ export class WorkspacesPresenter {
   }
 
   redirectGame(team: TeamModel) {
-    let canRedirect = false;
     if (team.isLock) {
-      const password = prompt('Ingrese la contraseña')!;
-      canRedirect = team.validatePassword(password)
+      const modal = this.modal.open(ModalEnterPasswordComponent, { size: 'xs' });
+      modal.afterClosed().subscribe(password => this.redirectToPrivateGame(team, password));
     } else {
-      canRedirect = true;
-    }
-
-    if (canRedirect) {
       this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
+    }
+  }
+
+  private redirectToPrivateGame(team: TeamModel, password: string): void {
+    if (team.validatePassword(password)) {
+      this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
+    } else {
+      this.popup.open<PopupContent>(PopupContentComponent, {
+        data: {
+          title: '¡Oh No!',
+          text: 'Contraseña Incorrecta'
+        }, lifeTime: 5000
+      })
     }
   }
 
