@@ -22,6 +22,7 @@ $padding-popup: 10px 20px;
   user-select: none;
   animation-duration: 0.3s;
   animation-name: slide-in;
+  z-index: 2;
 
   @include xs {
     width: $width-popup-xs;

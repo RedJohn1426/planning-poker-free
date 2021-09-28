@@ -10,9 +10,9 @@ export class TeamsService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  async addTeam(name: string) {
+  async addTeam(value: {name: string, password: string}) {
     const team = await this.firestore.collection('teams').doc();
-    await team.set({ name: name, status: true });
+    await team.set({ ...value, status: true });
     await team.collection('game').doc('details').set({ users: [] })
   }
 
@@ -21,11 +21,10 @@ export class TeamsService {
       .snapshotChanges()
       .pipe(
         map(res => res.map(value => {
-          const name = value.payload.doc.data().name;
-          const status = value.payload.doc.data().status;
+          const data = value.payload.doc.data();
           const id = value.payload.doc.id;
-          return new TeamModel({ name: name, code: id, status: status });
-        }))
+          return new TeamModel(id, data);
+        })),
       )
   }
 }

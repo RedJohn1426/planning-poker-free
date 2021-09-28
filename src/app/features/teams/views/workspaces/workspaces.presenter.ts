@@ -4,6 +4,13 @@ import { Router } from '@angular/router';
 import { Path } from '../../../../commons/constants/path.enum';
 import { TeamModel } from './commons/models/team.model';
 import { Subscription } from 'rxjs';
+import { ModalService } from '../../../../commons/services/modal/modal.service';
+import { ModalToAddComponent } from './commons/components/modal-to-add/modal-to-add.component';
+import { ModalEnterPasswordComponent } from './commons/components/modal-enter-password/modal-enter-password.component';
+import { PopupService } from '../../../../commons/services/popup/popup.service';
+import { PopupContent } from '../../../../commons/containers/popup-content/popup-content.interface';
+import { PopupContentComponent } from '../../../../commons/containers/popup-content/popup-content.component';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class WorkspacesPresenter {
@@ -19,6 +26,8 @@ export class WorkspacesPresenter {
   constructor(
     private teamsService: TeamsService,
     private router: Router,
+    private modal: ModalService,
+    private popup: PopupService
   ) { }
 
   getTeams(): void {
@@ -31,8 +40,32 @@ export class WorkspacesPresenter {
     this.subscription.add(subscription)
   }
 
-  async redirectGame(id: string) {
-    await this.router.navigateByUrl(`${Path.GAME}/${id}`);
+  openAddTeamModal(): void {
+    this.modal.open(ModalToAddComponent, { size: 'md' });
+  }
+
+  redirectGame(team: TeamModel) {
+    if (team.isLock) {
+      const modal = this.modal.open(ModalEnterPasswordComponent, { size: 'xs' });
+      modal.afterClosed()
+        .pipe(filter(password => password))
+        .subscribe(password => this.redirectToPrivateGame(team, password));
+    } else {
+      this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
+    }
+  }
+
+  private redirectToPrivateGame(team: TeamModel, password: string): void {
+    if (team.validatePassword(password)) {
+      this.router.navigateByUrl(`${Path.GAME}/${team.code}`);
+    } else {
+      this.popup.open<PopupContent>(PopupContentComponent, {
+        data: {
+          title: '¡Oh No!',
+          text: 'Contraseña Incorrecta'
+        }, lifeTime: 5000
+      })
+    }
   }
 
   searchTeam(team: string): TeamModel[] {

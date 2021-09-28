@@ -1,6 +1,7 @@
 import { Injector } from '@angular/core';
 
-export class PopupInjector implements Injector {
+export class CdkInjector implements Injector {
+
   constructor(
     private _parentInjector: Injector,
     private _customTokens: WeakMap<any, any>) { }
